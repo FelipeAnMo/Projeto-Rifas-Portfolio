@@ -1,0 +1,65 @@
+<div class="row">
+    <h3>PRINCIPAIS RIFAS</h3>
+
+    <?php foreach($this->view->principaisRifas as $rifas) { ?>
+        <a class="rifa-box" href="/rifa?id=<?php echo $rifas['id']; ?>">
+            <div class="rifa-box-l">
+                <img src="img/<?php echo $rifas['imagem']; ?>">
+            </div>
+
+            <div class="rifa-box-c">
+                <h4><?php
+                    if(strlen($rifas['nome'] >= 24)) {
+                        echo substr($rifas['nome'], 0, 23) . '...'; 
+                    }
+                ?></h4>
+
+                <div class="rifa-descricao">
+                    <p><?php
+                        $rifas['descricao'] = str_replace('<br>', '', $rifas['descricao']);
+
+                        if(strlen($rifas['descricao'] >= 77)) {
+                            echo substr($rifas['descricao'], 0, 76) . '...'; 
+                        }
+                    ?></p>
+                </div>
+            </div>
+
+            <div class="rifa-box-r">
+                <i class="fa-solid fa-angle-right fa-2xl"></i>
+            </div>
+        </a>
+    <?php } ?>
+</div>
+
+<div class="row" style="padding-bottom: 15px;">
+    <h3>NOVAS RIFAS</h3>
+
+    <?php foreach($this->view->novasRifas as $rifas) { ?>
+        <a class="rifa-box" href="/rifa?id=<?php echo $rifas['id']; ?>">
+            <div class="rifa-box-l">
+                <img src="img/<?php echo $rifas['imagem']; ?>">
+            </div>
+
+            <div class="rifa-box-c">
+                <h4><?php
+                    if(strlen($rifas['nome'] >= 24)) {
+                        echo substr($rifas['nome'], 0, 23) . '...'; 
+                    }
+                ?></h4>
+
+                <div class="rifa-descricao">
+                    <p><?php
+                        if(strlen($rifas['descricao'] >= 77)) {
+                            echo substr($rifas['descricao'], 0, 76) . '...'; 
+                        }
+                    ?></p>
+                </div>
+            </div>
+
+            <div class="rifa-box-r">
+                <i class="fa-solid fa-angle-right fa-2xl"></i>
+            </div>
+        </a>
+    <?php } ?>
+</div>

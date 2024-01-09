@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rifas</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/047d9000fc.js" crossorigin="anonymous"></script>
+        <!-- Jquery 3.7.1 slim -->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+        <!-- JavaScript -->
+        <script src="js/headerCollapse.js"></script>
+        <script src="js/cubes.js"></script>
+        <script src="js/logoColor.js"></script>
+
+    </head>
+
+    <body>
+    <div id="background"></div>
+        <div id="container">
+            <header id="header">
+                <div id="header-row-one">
+                    <div id="header-box-l">
+                        <div class="logo">
+                            <p class="logo-letras">F<span class="logo-barra">/</span>M</p>
+                        </div>
+                    </div>
+                    <div id="header-box-r">
+                        <i id="bars-icon" class="fa-solid fa-bars fa-2xl"></i>
+                    </div>
+                </div>
+
+                <nav id="header-row-two">
+                    <ul id="menu">
+                        <li><a href="/">Home</a></li>
+
+                        <li><a href="/rifas">Rifas</a></li>
+
+                        <li><a href="/sobre">Sobre</a></li>
+                    </ul>
+                </nav>
+
+                <div id="header-row-three">
+                    <?php session_start(); if(!isset($_SESSION['email'])) { ?>
+                        <a href="/entrar">
+                            <button> Entrar <i class="fa-regular fa-share-from-square fa-lg"></i></button>
+                        </a>
+                    <?php } else {?>
+                        <p style="width: 160px; height: 22px; margin-bottom: 2px;"> <span style="border-bottom: 2px solid var(--lightGray);">Olá, <?php echo $_SESSION['nome']; ?></span><i class="fa-solid fa-hand"></i></p>
+
+                        <a href="/sairAuth" style="margin-left: 196px;">
+                            <button style="padding: 10px 20px 10px 20px; display: flex; align-items: center;"> Sair <i class="fa-solid fa-arrow-right-from-bracket fa-lg" style="margin-left: 8px;"></i></button>
+                        </a>
+                    <?php } ?>
+                </div>
+            </header>
+            <div style="height: 80px;"></div>
+            <div id="header-fixado">
+                <div class="logo-two">
+                    <p class="logo-letras">F<span class="logo-barra">/</span>M</p>
+                </div>
+            </div>
+            
+            <?php $this->content(); ?>
+
+            <footer>
+                <div id="footer-box">
+                    <h3>Contato:</h3>
+                    <p><i class="fa-solid fa-caret-right fa-sm"></i> <span>Email:</span> felipe.moretzsohn@gmail.com</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

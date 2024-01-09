@@ -1,0 +1,37 @@
+<?php
+    if(isset($_SESSION['email'])) {
+        header('Location: /');
+    }
+?>
+
+<div class="row" style="padding-bottom: 261px;">
+    <form id="cadastrar" method="post" action="/cadastrarAuth">
+        <div class="column">
+            <input type="text" name="nome" placeholder="nome" <?php if(isset($_GET['erro']) && $_GET['erro'] == '01110') {echo 'style="border: 1px solid var(--red);"';} ?>>
+
+            <input type="text" name="email" placeholder="email" <?php if(isset($_GET['erro']) && ($_GET['erro'] == '10010' || $_GET['erro'] == '01110')) {echo 'style="border: 1px solid var(--red);"';} ?>>
+            <?php
+                if(isset($_GET['erro']) && $_GET['erro'] == '10010') {
+                    echo '<small style="color: var(--red);">Este email já está em uso</small>';
+                }
+                
+            ?>
+
+            <input type="password" name="senha" placeholder="senha" <?php if(isset($_GET['erro']) && $_GET['erro'] == '10010') {echo 'style="margin-top: 14px;"';} else if(isset($_GET['erro']) && $_GET['erro'] == '01110') {echo 'style="border: 1px solid var(--red);"';} ?> >
+        </div>
+
+        <div class="column">
+            <div id="button-box" <?php if(isset($_GET['erro']) && $_GET['erro'] == '01110') {echo 'style="margin-top: 70px;"';} ?>>
+                <?php
+                    if(isset($_GET['erro']) && $_GET['erro'] == '01110') {
+                        echo '<small style="color: var(--red); margin: 0px 0px 5px 48px;">Informações inválidas</small>';
+                    }
+                ?>
+                
+                <button type="submit">Cadastrar</button>
+
+                <p>Já possui uma conta? <a href="/entrar">Entrar</a></p>
+            </div>
+        </div>
+    </form>
+</div>

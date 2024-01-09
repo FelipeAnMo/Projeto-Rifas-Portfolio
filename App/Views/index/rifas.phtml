@@ -1,0 +1,31 @@
+<div class="row" style="padding-bottom: 142px;">
+    <h3>RIFAS</h3>
+
+    <?php foreach($this->view->rifas as $rifa) { ?>
+        <a class="rifa-box" href="/rifa?id=<?php echo $rifa['id']; ?>">
+            <div class="rifa-box-l">
+                <img src="img/<?php echo $rifa['imagem']; ?>">
+            </div>
+
+            <div class="rifa-box-c">
+                <h4><?php
+                        if(strlen($rifa['nome'] >= 24)) {
+                            echo substr($rifa['nome'], 0, 23) . '...'; 
+                        }
+                ?></h4>
+
+                <div class="rifa-descricao">
+                    <p><?php
+                            if(strlen($rifa['descricao'] >= 77)) {
+                                echo substr($rifa['descricao'], 0, 76) . '...'; 
+                            }
+                    ?></p>
+                </div>
+            </div>
+
+            <div class="rifa-box-r">
+                <i class="fa-solid fa-angle-right fa-2xl"></i>
+            </div>
+        </a>
+    <?php } ?>
+</div>

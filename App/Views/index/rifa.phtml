@@ -1,0 +1,27 @@
+<div>
+    <div id="box-imagem">
+        <div id="imagem-anuncio">
+            <img src="img/<?php echo $this->view->rifa['imagem']; ?>">
+        </div>
+    </div>
+</div>
+
+<div>
+    <div id="rifa-titulo">
+        <h2><?php echo $this->view->rifa['nome']; ?></h2>
+    </div>
+
+    <div id="buttons">
+        <form method="get" action="/finalizar">
+            <button>Participar</button>
+        </form>
+    </div>
+
+    <div id="rifa-info">
+        <div id="rifa-descricao">
+            <h4>Descrição</h4>
+
+            <p><?php echo $this->view->rifa['descricao']; ?></p>
+        </div>
+    </div>
+</div>

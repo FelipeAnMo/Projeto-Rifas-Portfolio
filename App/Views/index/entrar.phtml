@@ -1,0 +1,22 @@
+<?php
+    if(isset($_SESSION['email'])) {
+        header('Location: /');
+    }
+?>
+
+<div class="row" style="padding-bottom: 261px;">
+    <form id="login" method="post" action="/entrarAuth">
+        <input type="text" name="email" placeholder="email" <?php if(isset($_GET['erro']) && $_GET['erro'] == '10011') {echo 'style="border: 1px solid var(--red);"';} ?>>
+
+        <input type="password" name="senha" placeholder="senha" <?php if(isset($_GET['erro']) && $_GET['erro'] == '10011') {echo 'style="border: 1px solid var(--red);"';} ?>>
+        <?php
+            if(isset($_GET['erro']) && $_GET['erro'] == '10011') {
+                echo '<small style="color: var(--red);">Email e/ou senha inválido(s)</small>';
+            }
+        ?>
+
+        <button type="submit" <?php if(isset($_GET['erro']) && $_GET['erro'] == '10011') {echo 'style="margin-top: 10px";';} ?>>Entrar</button>
+
+        <p>Não possui uma conta? <a href="/cadastrar">Cadastre-se</a></p>
+    </form>
+</div>
